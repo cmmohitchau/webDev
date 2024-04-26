@@ -1,0 +1,15 @@
+{
+  "name": "2.2_hi",
+  "version": "1.0.0",
+  "description": "1. What is ECMAScript ?\r => ECMAScript is a scripting language specification on which javascript is based.\r    It is a scripting language specification standardized by Ecma international in the ECMA-262 and ISO/IEC 16262 documents.\r     It serves as the guideline or the 'rules' for scripting language design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

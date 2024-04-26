@@ -1,0 +1,6 @@
+async function is mainly used for 4 things
+
+1 => do a remote network call
+2 => sleep/wait for some time
+3 => read or write file
+4 => database call
