@@ -1,31 +1,37 @@
-import { useState } from "react"
+import React,{useState} from "react";
 
-function WrapperComponents() {
-  return (
-    <div>
-      <HeaderWithButton />
-      <Header title="My name is raman" />
-    </div>
-  )
-}
 
-function HeaderWithButton() {
-  const [firstTitle, setFirstTitle] = useState("my name is harkirat");
-
-  function changeTitle() {
-    setFirstTitle("My name is " + Math.random())
-  }
-
+function App() {
   return <>
-    <button onClick={changeTitle}>Click me to change the title</button>
-    <Header title={firstTitle} />
+  {/* <CardComponent innerComponnet = {<TextComponent/>}></CardComponent>
+  <CardComponent innerComponnet = {<TextComponent/>}></CardComponent>
+  <CardComponent innerComponnet = {<ImageComponent/>}></CardComponent> */}
+
+    {/* real wrappere */}
+
+    <CardComponent>hi there</CardComponent>
+    <CardComponent><img src="https://images.unsplash.com/photo-1711212113408-15b60b46be80?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="an image" /></CardComponent>
   </>
 }
 
-function Header({title}) {
-  return <div>
-    {title}
-  </div>
+// function TextComponent() {
+//   return (
+//     <>hi there</>
+//   )
+// }
+
+// function ImageComponent() {
+//   return(
+//     <>
+//     <img src="https://images.unsplash.com/photo-1711212113408-15b60b46be80?q=80&w=1034&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="an image" />
+//     </>
+//   )
+// }
+
+function CardComponent({children}) {
+return <>
+<div style={{border : '2px red solid' , backgroundColor : 'lightblue' , padding : '20px' , margin : '5px'}}>{children}</div>
+</>
 }
 
-export default WrapperComponents
+export default App
