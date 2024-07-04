@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dis"></div>
+    <script>
+        // function getPersonData()
+        // {
+        //     const response = fetch("https://fakerapi.it/api/v1/persons")
+        //     .then(function (response) {
+        //          response.json()
+        //          .then(function (finalData) {
+        //             console.log(finalData);
+        //          })
+        //     })
+        // }
+
+        async function getPersonData()
+        {
+            const response = await fetch("https://fakerapi.it/api/v1/persons")
+            const finalData = await response.json();
+            let finalname = []
+
+            for(let i = 0 ; i < finalData.data.length ; i++)
+            {
+                finalname.push(finalData.data[i].firstname);
+            }
+
+            document.getElementById("dis").innerHTML = finalname
+            
+        }
+    </script>
+    <button onclick="getPersonData()">Get Person Data</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.democlass {
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<h1 class="democlass">Hello World</h1>
+
+<p id="demo">Click the button to remove the class attribute from the h1 element.</p>
+
+<button onclick="myFunction()">remove</button>
+<button onclick="append()">append</button>
+
+<script>
+function myFunction() {
+  document.getElementsByTagName("H1")[0].removeAttribute("class"); 
+}
+
+function append(){
+	document.getElementsByTagName("H1")[0].setAttribute("class", "democlass");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum</title>
+</head>
+
+<script>
+    // response from server side
+    let x;
+
+    function debouncedPopulateDiv()
+    {
+        clearTimeout(x);
+         x = setTimeout(function() {
+            sum();
+        } , 200)
+    }
+
+    async function sum()
+    {
+        let a =  document.getElementById("first").value;
+        let b = document.getElementById("second").value; 
+
+        const response = await fetch("https://sum-server.100xdevs.com/sum?a=" + a + " &b="+b)
+        const ans = await response.text();
+        let z = document.getElementById("finalSum");
+        z.innerHTML = ans;
+
+        
+    }
+</script>
+<body>
+
+    
+
+    <input oninput="debouncedPopulateDiv()" id="first" type="number" placeholder="enter a number"> </input>
+    <br>
+    <br> 
+    <input oninput="debouncedPopulateDiv()" id="second" type="number" placeholder="Enter another number"> </input>  
+    <br>
+    <br>
+    <!-- <button onclick="()">sum</button> -->
+
+    <p id="finalSum"></p>
+
+    
+</body>
+</html>

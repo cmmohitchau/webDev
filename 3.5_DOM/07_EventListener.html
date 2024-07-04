@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event listener</title>
+</head>
+<body>
+    <div style="padding: 30px;background: #000;"></div>
+    
+    <button id="colorChange">colorChange</button>
+
+    <script>
+        let color = document.getElementById("colorChange");
+        color.addEventListener("click" , () => {
+            document.getElementsByTagName("div")[0].style.backgroundColor = "red";
+        })
+
+    </script>
+    
+</body>
+</html>

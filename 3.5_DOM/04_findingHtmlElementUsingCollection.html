@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1>Finding HTML Elements using <b>document.form</b>.</h1>
+    <h3>it is live but nodelist is not live</h3>
+    <form id="LoginForm">
+        First name : <input type="text" value="Mohit" >
+        <br>
+        <br>
+        Last name : <input type="text" value="chaudhary">
+         <br>
+        <input type="submit" value="submit">
+
+    </form>
+
+    <p>Click the "Try it" button to display the values of each element in the form.</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <p id="displayspace"></p>
+
+    <script>
+        function myFunction()
+        {
+            const x = document.forms["LoginForm"];
+            let text = "";
+            for(let i = 0 ; i < x.length ; i++)
+            {
+                text+= x.elements[i].value + "<br>";
+
+            }
+
+            document.getElementById("displayspace").innerHTML = text;
+        }
+    </script>
+    
+</body>
+</html>

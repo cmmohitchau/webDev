@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    <h1>Append and delete child</h1>
+    <div id="first">This is first div</div>
+
+    <button onclick="append()">append</button>
+    <br><br>
+    <button onclick="removechild()">remove</button>
+
+    <script>
+        function append()
+        {
+        let child1 = document.createElement("p");
+        child1.innerHTML = "This is a paragraph inside first div";
+        document.getElementById("first").appendChild(child1);
+        }
+
+        function removechild()
+        {
+            let parent = document.getElementById("first");
+            let childnode = parent.childNodes[0];
+            console.log(childnode);
+            childnode.remove();
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+1. What is ECMAScript ?
+=> ECMAScript is a scripting language specification on which javascript is based.
+   It is a scripting language specification standardized by Ecma international in the ECMA-262 and ISO/IEC 16262 documents.
+    It serves as the guideline or the 'rules' for scripting language design
+
+2. What is Javascript ?
+=> Javascript is a scripting language that confirms to the ECMAScript speitcification.
+   It supports additional features that are not part of the ECMAScript specification , like the DOM manipulation, which is crucial for web development but is not defined by ECMAScript
+
+3. What is Node.js ?
+=> Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. This makes it possible to build back-end applications using the same JavaScript programming language you may be familiar with.
+
+4. What is Bun ?
+=> Other than the fact JS is single threaded, Node.js is slow. Some smart people said they wanted to re-write the HS runtime for the backend and introduced Bun
+
+It is a significantly faster runtime. It is written in Zig.
+
+* USE of Node.js ?
+1. Create clis
+2. create a video player
+3. Create a game
+4. Create a HTTP server
+
+Q. What is an HTTP protocol ?
+=> A protocol that is defined for machines to communicate. It is most common way for website's frontend to talk to its backend.

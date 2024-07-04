@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The Document Object</h1>
+    <h2>The querySelectorAll() Method gives a listnode</h2>
+    <br>
+    <h2>The querySelector () Method gives a first occurrence</h2>
+
+    <p>Change the bg color of every p element where the parent is a div element : </p>
+
+    <div>
+        <h3>h3 element</h3>
+        <p>para inside div</p>
+    </div>
+
+    <div>
+        <h2>h2 element</h2>
+        <p>i ama p element , my parent is also a div element</p>
+    </div>
+
+    <button onclick="myfun()">click it</button>
+
+    <script>
+        function myfun()
+        {
+            // const nodeList = document.querySelectorAll("div > p");
+            // for(let i = 0 ; i < nodeList.length ; i++)
+            // {
+            //     nodeList[i].style.backgroundColor = "aqua";
+            // } 
+            
+            
+            const node = document.querySelector("div > p");
+            node.style.backgroundColor = "aqua";
+
+        }
+
+    </script>
+</body>
+</html>
