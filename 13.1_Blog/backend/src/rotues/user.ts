@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { sign, verify } from 'hono/jwt'
-
+import {signupBody} from '@mohit004/my-blog'
 
 export const userRouter = new Hono<{
     Bindings : {
@@ -10,6 +10,8 @@ export const userRouter = new Hono<{
         JWT_SECRET : string
     }
 }>();
+
+
 userRouter.post('/signup', async (c) => {
     const prisma = new PrismaClient({
       datasources: {
@@ -20,11 +22,18 @@ userRouter.post('/signup', async (c) => {
     }).$extends(withAccelerate());
   
     const body = await c.req.json();
+    const {success} = signupBody.safeParse(body);
+    if(!success) {
+      c.status(403);
+      c.json({
+        msg : "Input not valid"
+      })
+    }
   
     try {
       const user = await prisma.user.create({
         data: {
-          email: body.email,
+          username: body.username,
           name: body.name,
           password: body.password
         },
@@ -36,7 +45,7 @@ userRouter.post('/signup', async (c) => {
   
       const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
   
-      return c.json({ jwt });
+      return c.text(jwt);
     } catch (e) {
       console.log("error in catch", e);
   
@@ -58,7 +67,7 @@ userRouter.post('/signup', async (c) => {
     try {
       const user = await prisma.user.findFirst({
         where : {
-          email : body.email,
+          username : body.username,
           password : body.password
         },
       })
@@ -69,11 +78,9 @@ userRouter.post('/signup', async (c) => {
         })
       }
   
-      const token =await sign( {id : user.id} , c.env.JWT_SECRET)
+      const jwt=await sign( {id : user.id} , c.env.JWT_SECRET)
       c.status(200)
-      return c.json({
-        token
-      })
+      return c.text(jwt)
   
     } catch(err) {
       c.status(403);

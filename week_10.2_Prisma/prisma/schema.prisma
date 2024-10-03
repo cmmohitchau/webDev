@@ -20,7 +20,6 @@ model Employee {
   password String
   fsname String
   lsname String?
-  todos Todo[]
 
 }
 

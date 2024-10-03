@@ -1,9 +1,10 @@
-const exp = require('constants')
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const jwtPassword = "1234567"
 const app = express()
 app.use(express.json())
+
+
 const users = [
     {
         username : "Mohit@gmail.com",

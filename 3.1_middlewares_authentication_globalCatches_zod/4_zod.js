@@ -18,7 +18,7 @@ const schema = zod.object({
 
 
 app.post("/health-checkup" , function(req,res) {
-    const kidneys = req.body.kidneys;
+    const kidneys = req.body;
     const response = schema.safeParse(kidneys)
     if(!response.success) {
         res.status(411).json({
@@ -40,3 +40,5 @@ app.use( (err,req,res,next) => {
 app.listen(3000 , ()=> {
     console.log("app is listening at 3000");
 })
+
+
